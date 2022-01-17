@@ -30,6 +30,7 @@
     "@nestjs/websockets": "^8.2.5",
     "@pestras/stores-sales-core": "0.0.1",
     "@pestras/validall": "^2.1.2",
+    "mongodb": "^4.3.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0"
