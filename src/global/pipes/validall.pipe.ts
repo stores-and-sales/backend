@@ -8,23 +8,22 @@ import { Validall } from "@pestras/validall";
 
 @Injectable()
 export class ValidallPipe implements PipeTransform {
-  private readonly validator: Validall;
-
-  constructor(@Inject('VALIDALL_PIPE_TOKEN') private readonly validatorName: string) {
-    this.validator = Validall.Get(validatorName);
-
-    if (!this.validator)
-      throw new InternalServerErrorException(`${this.validatorName} validator could not be found!`);
-  }
+  
+  constructor(@Inject('VALIDALL_PIPE_TOKEN') private readonly validatorName: string) {}
 
   transform(value: any, metadata: ArgumentMetadata) {
+    const validator = Validall.Get(this.validatorName);
+
+    if (!validator)
+      throw new InternalServerErrorException(`${this.validatorName} validator could not be found!`);
+
     const data = metadata.type === "param" && metadata.data
       ? { [metadata.data]: value }
       : value;
 
-    if (this.validator.validate(data))
+    if (validator.validate(data))
       return value;
 
-    throw new BadRequestException(this.validator.error.message);
+    throw new BadRequestException(validator.error.message);
   }
 }

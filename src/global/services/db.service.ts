@@ -9,7 +9,7 @@ import { MongoClient, Db } from 'mongodb';
 
 @Injectable()
 export class DBService implements OnModuleInit, BeforeApplicationShutdown {
-  private readonly logger = new Logger('database-service');
+  private readonly logger = new Logger('DatabaseService');
   private conn: MongoClient;
 
   public db: Db;

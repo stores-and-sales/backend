@@ -8,9 +8,14 @@ import { EventsService } from './services/events.service';
   providers: [
     DBService,
     EventsService,
-    { provide: 'VALIDALL_PIPE_TOKEN', useValue: String },
+    { provide: 'VALIDALL_PIPE_TOKEN', useValue: "schema-name" },
     ValidallPipe
   ],
-  exports: [DBService, EventsService, ValidallPipe]
+  exports: [
+    DBService,
+    EventsService,
+    ValidallPipe,
+    { provide: 'VALIDALL_PIPE_TOKEN', useValue: "schema-name" },
+  ]
 })
 export class GlobalModule {}

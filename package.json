@@ -28,7 +28,7 @@
     "@nestjs/jwt": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/websockets": "^8.2.5",
-    "@pestras/stores-sales-core": "0.0.1",
+    "@pestras/stores-sales-core": "0.0.15",
     "@pestras/validall": "^2.1.2",
     "mongodb": "^4.3.0",
     "reflect-metadata": "^0.1.13",
